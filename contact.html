@@ -1,1 +1,88 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us | Praises for Paws</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+<div id="site-header"></div>
+
+<main>
+  <section class="page-banner">
+    <span class="eyebrow">We'd love to hear from you</span>
+    <h1>Contact Us 📞</h1>
+    <p>Have a question, partnership idea, or interest in volunteering? Reach out to Praises for Paws.</p>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid">
+        <article class="card">
+          <div class="icon-large">✉️</div>
+          <h3>Email Us</h3>
+          <p>For general questions and collaboration inquiries.</p>
+          <!-- Replace this placeholder with your official email. -->
+          <a href="mailto:YOUR-EMAIL@example.com">YOUR-EMAIL@example.com</a>
+        </article>
+
+        <article class="card">
+          <div class="icon-large">📱</div>
+          <h3>Follow Our Updates</h3>
+          <p>Follow our official social accounts for events and campaigns.</p>
+          <a href="https://www.instagram.com/">Instagram</a>
+        </article>
+
+        <article class="card">
+          <div class="icon-large">🤝</div>
+          <h3>Work With Us</h3>
+          <p>Interested in volunteering or partnering on a community initiative?</p>
+          <a href="volunteer.html">Explore volunteering →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-pink">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Send Us a Message</h2>
+        <p>Complete the form design below. Connect a form provider before collecting real submissions.</p>
+      </div>
+
+      <form data-demo-form>
+        <label for="contact-name">Your name</label>
+        <input id="contact-name" name="name" autocomplete="name" required>
+
+        <label for="contact-email">Your email</label>
+        <input id="contact-email" name="email" type="email" autocomplete="email" required>
+
+        <label for="contact-subject">What is your message about?</label>
+        <select id="contact-subject" name="subject" required>
+          <option value="">Choose a topic</option>
+          <option>General question</option>
+          <option>Volunteering</option>
+          <option>Fundraising</option>
+          <option>Events</option>
+          <option>Partnership opportunities</option>
+          <option>Other</option>
+        </select>
+
+        <label for="contact-message">Your message</label>
+        <textarea id="contact-message" name="message" required placeholder="Write your message here..."></textarea>
+
+        <p class="notice">Demo only: this form does not transmit or store messages.</p>
+        <button class="button" type="submit">Preview Message</button>
+        <p class="form-message" data-form-message role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+</body>
+</html>
+
