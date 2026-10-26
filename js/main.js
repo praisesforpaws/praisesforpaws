@@ -16,9 +16,10 @@ const impactNumbers = {
 
 const navItems = [
   ["index.html", "🏠 Home"],
+  ["pawsgiving.html", "🐾 Pawsgiving"],
   ["donate.html", "💵 Donate"],
   ["about.html", "❤️ About Us"],
-  ["programs.html", "🐾 Programs"],
+  ["programs.html", "🧾 Programs"],
   ["volunteer.html", "🙋 Volunteer"],
   ["events.html", "📅 Events"],
   ["success-stories.html", "🐶 Success Stories"],
