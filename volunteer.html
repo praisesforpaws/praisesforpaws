@@ -1,1 +1,95 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Volunteer | Praises for Paws</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+<div id="site-header"></div>
+
+<main>
+  <section class="page-banner">
+    <span class="eyebrow">Make a difference</span>
+    <h1>Become a Volunteer 🙋</h1>
+    <p>Your ideas, energy, and kindness can help us create a more caring world for pets.</p>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Ways to Get Involved</h2>
+        <p>Find a way to contribute that matches your interests and availability.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="icon-large">🎪</div>
+          <h3>Event Volunteers</h3>
+          <p>Help with event preparation, approved community activities, supply drives, and awareness events.</p>
+        </article>
+        <article class="card">
+          <div class="icon-large">📱</div>
+          <h3>Social Media Helpers</h3>
+          <p>Help create and share educational content, event announcements, and fundraising updates.</p>
+        </article>
+        <article class="card">
+          <div class="icon-large">💗</div>
+          <h3>Fundraising Helpers</h3>
+          <p>Contribute ideas for donation drives, community campaigns, and school-approved fundraisers.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-pink">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Volunteer Interest Form</h2>
+        <p>Tell us how you might like to help. Connect a form service before using this form to collect responses.</p>
+      </div>
+
+      <form data-demo-form>
+        <label for="volunteer-name">Your name</label>
+        <input id="volunteer-name" name="name" autocomplete="name" required>
+
+        <label for="volunteer-email">Email address</label>
+        <input id="volunteer-email" name="email" type="email" autocomplete="email" required>
+
+        <label for="volunteer-interest">What would you like to help with?</label>
+        <select id="volunteer-interest" name="interest" required>
+          <option value="">Choose an interest</option>
+          <option>Events</option>
+          <option>Fundraising</option>
+          <option>Social media</option>
+          <option>Pet supply drives</option>
+          <option>Adoption awareness</option>
+          <option>General volunteering</option>
+        </select>
+
+        <label for="volunteer-availability">Availability (optional)</label>
+        <select id="volunteer-availability" name="availability">
+          <option>Flexible</option>
+          <option>Weekdays</option>
+          <option>Weekends</option>
+          <option>School breaks</option>
+          <option>Occasional events only</option>
+        </select>
+
+        <label for="volunteer-message">Anything else you'd like us to know?</label>
+        <textarea id="volunteer-message" name="message" placeholder="Share your ideas or interests..."></textarea>
+
+        <p class="notice">Demo only: this form does not send or store submissions. Use an approved form service before collecting personal information.</p>
+        <button class="button" type="submit">Preview Submission</button>
+        <p class="form-message" data-form-message role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+</body>
+</html>
+
