@@ -1,1 +1,81 @@
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Donate | Praises for Paws</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+<div id="site-header"></div>
+
+<main>
+  <section class="page-banner">
+    <span class="eyebrow">Give a little love</span>
+    <h1>Support Paws in Need 💗</h1>
+    <p>Your support can help us work toward better care, essential supplies, and a kinder world for animals.</p>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Every Contribution Matters</h2>
+        <p>Choose an amount to preview your donation intention. This form does not take payments.</p>
+      </div>
+
+      <form data-demo-form>
+        <h3 class="text-center">Choose Your Donation Amount</h3>
+
+        <div class="amount-buttons">
+          <button class="amount-button" type="button" data-donation-amount="10">$10</button>
+          <button class="amount-button selected" type="button" data-donation-amount="25">$25</button>
+          <button class="amount-button" type="button" data-donation-amount="50">$50</button>
+          <button class="amount-button" type="button" data-donation-amount="100">$100</button>
+        </div>
+
+        <label for="donation-amount">Custom amount (USD)</label>
+        <input id="donation-amount" name="amount" type="number" min="1" max="100000" step="1" value="25" required>
+
+        <label for="donor-name">Name (optional)</label>
+        <input id="donor-name" name="name" autocomplete="name" placeholder="Your name">
+
+        <label for="donor-email">Email (optional)</label>
+        <input id="donor-email" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+
+        <label for="donation-purpose">What would you like to support?</label>
+        <select id="donation-purpose" name="purpose">
+          <option value="general">Where needed most</option>
+          <option value="medical">Pet medical care</option>
+          <option value="supplies">Pet food and supplies</option>
+          <option value="adoption">Adoption awareness</option>
+          <option value="welfare">Pet welfare campaigns</option>
+        </select>
+
+        <p class="notice">Demo only: no payment will be collected, and your information will not be sent or saved.</p>
+        <button class="button" type="submit">Preview My Donation</button>
+        <p class="form-message" data-form-message role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <section class="section section-pink">
+    <div class="container">
+      <div class="section-heading">
+        <h2>What Your Support Helps Us Work Toward</h2>
+        <p>Funds and supplies can support initiatives such as these, depending on available resources and verified partner needs.</p>
+      </div>
+      <div class="grid">
+        <article class="card"><div class="icon-large">🩺</div><h3>Medical Needs</h3><p>Help support fundraising efforts for veterinary expenses through appropriate partners.</p></article>
+        <article class="card"><div class="icon-large">🦴</div><h3>Essential Supplies</h3><p>Support drives for food, bedding, toys, and other requested pet essentials.</p></article>
+        <article class="card"><div class="icon-large">🏡</div><h3>Adoption Awareness</h3><p>Help spread educational resources that encourage responsible adoption and pet care.</p></article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+</body>
+</html>
