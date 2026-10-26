@@ -9,7 +9,7 @@
 */
 const impactNumbers = {
   petsHelped: 25,
-  fundsRaised: 1250,
+  fundsRaised: 83,
   volunteers: 18,
   events: 6
 };
@@ -84,8 +84,9 @@ function buildFooter() {
           <div>
             <h3>Quick Links</h3>
             <a href="index.html">🏠 Home</a>
+            <a href="pawsgiving.html">🐾 Pawsgiving</a>
             <a href="about.html">❤️ About Us</a>
-            <a href="programs.html">🐾 Programs</a>
+            <a href="programs.html">🧾 Programs</a>
             <a href="events.html">📅 Events</a>
           </div>
 
