@@ -1,1 +1,114 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Events | Praises for Paws</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+<div id="site-header"></div>
+
+<main>
+  <section class="page-banner">
+    <span class="eyebrow">Come together for a cause</span>
+    <h1>Events & Community 💗</h1>
+    <p>Discover fundraisers, supply drives, adoption awareness activities, and other ways to help animals.</p>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Upcoming & Featured Events</h2>
+        <p>Replace the sample event information below with confirmed details.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <img class="card-image" src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=900&q=80" alt="Pet food for a supply drive">
+          <span class="tag">Supply Drive</span>
+          <h3>Community Pet Supply Drive</h3>
+          <p class="event-meta"><strong>📍 Location:</strong> Add venue and city</p>
+          <p class="event-meta"><strong>📅 Date:</strong> Add confirmed date and time</p>
+          <p>Help collect requested pet food, toys, bedding, and other essentials for animal welfare partners.</p>
+          <div class="card-actions">
+            <button class="button" type="button"
+              data-gallery data-title="Community Pet Supply Drive"
+              data-images="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=1200&q=85|https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&w=1200&q=85">
+              View Photos 📸
+            </button>
+            <a class="button button-outline" href="contact.html">Ask About Event</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img class="card-image" src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=900&q=80" alt="Dog outdoors for a fundraising event">
+          <span class="tag">Fundraiser</span>
+          <h3>Paws for a Cause</h3>
+          <p class="event-meta"><strong>📍 Location:</strong> Add venue and city</p>
+          <p class="event-meta"><strong>📅 Date:</strong> Add confirmed date and time</p>
+          <p>A community fundraiser to support our animal welfare initiatives and help spread the word about our mission.</p>
+          <div class="card-actions">
+            <button class="button" type="button"
+              data-gallery data-title="Paws for a Cause"
+              data-images="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=1200&q=85|https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1200&q=85">
+              View Photos 📸
+            </button>
+            <a class="button button-outline" href="contact.html">Ask About Event</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img class="card-image" src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=900&q=80" alt="Happy dog for an adoption awareness event">
+          <span class="tag">Awareness</span>
+          <h3>Adoption Awareness Day</h3>
+          <p class="event-meta"><strong>📍 Location:</strong> Add venue and city</p>
+          <p class="event-meta"><strong>📅 Date:</strong> Add confirmed date and time</p>
+          <p>Help share responsible adoption resources and celebrate the importance of finding pets loving homes.</p>
+          <div class="card-actions">
+            <button class="button" type="button"
+              data-gallery data-title="Adoption Awareness Day"
+              data-images="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1200&q=85|https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&w=1200&q=85">
+              View Photos 📸
+            </button>
+            <a class="button button-outline" href="contact.html">Ask About Event</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-pink">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Event Photo Gallery</h2>
+        <p>Have photos from a past event? Add them to the event's image list above.</p>
+      </div>
+      <div class="cta">
+        <h3>Want to Help at Our Next Event?</h3>
+        <p>Join our volunteer community and help make our next project a success.</p>
+        <a class="button" href="volunteer.html">Become a Volunteer</a>
+      </div>
+    </div>
+  </section>
+
+  <dialog id="gallery-dialog" class="gallery-dialog" aria-labelledby="gallery-title">
+    <div class="gallery-heading">
+      <h2 id="gallery-title" data-gallery-title>Event Gallery</h2>
+      <button class="button button-dark" type="button" data-gallery-close>Close ✕</button>
+    </div>
+    <img data-gallery-image src="" alt="Event gallery photograph">
+    <div class="gallery-controls">
+      <button class="button button-outline" type="button" data-gallery-prev>← Previous</button>
+      <span data-gallery-counter aria-live="polite"></span>
+      <button class="button" type="button" data-gallery-next>Next →</button>
+    </div>
+  </dialog>
+</main>
+
+<div id="site-footer"></div>
+</body>
+</html>
+
