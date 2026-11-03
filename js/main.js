@@ -280,6 +280,5 @@ document.addEventListener("DOMContentLoaded", () => {
   setupHeroCarousel();
   setupDonationAmounts();
   setupEventGalleries();
-  setupDemoForms();
 });
 
