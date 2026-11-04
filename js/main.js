@@ -9,10 +9,8 @@
 */
 
 const impactNumbers = {
-  petsHelped: 25,
   fundsRaised: 83,
-  volunteers: 18,
-  events: 6
+  events: 1
 };
 
 
