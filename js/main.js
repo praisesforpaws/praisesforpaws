@@ -1,18 +1,22 @@
 
-/* =====================================
+/* =========================================================
    PRAISES FOR PAWS — SHARED JAVASCRIPT
-   ===================================== */
+   ========================================================= */
 
-/*
-  EDIT YOUR IMPACT NUMBERS HERE.
-  Use real, verified totals when publishing.
+
+/* 1. IMPACT NUMBERS
+   Edit these values when your verified totals change.
 */
+
 const impactNumbers = {
   petsHelped: 25,
   fundsRaised: 83,
   volunteers: 18,
   events: 6
 };
+
+
+/* 2. NAVIGATION LINKS */
 
 const navItems = [
   ["index.html", "🏠 Home"],
@@ -26,259 +30,361 @@ const navItems = [
   ["contact.html", "📞 Contact"]
 ];
 
-const currentPage = location.pathname.split("/").pop() || "index.html";
+
+/* 3. BUILD SHARED HEADER */
 
 function buildHeader() {
-  const target = document.querySelector("#site-header");
-  if (!target) return;
+  const header = document.querySelector("#site-header");
 
-  target.innerHTML = `
+  if (!header) return;
+
+  const currentPage =
+    window.location.pathname.split("/").pop() || "index.html";
+
+  const navigationLinks = navItems.map(([url, label]) => {
+    const activeClass = currentPage === url ? "active" : "";
+
+    return `
+      <a href="${url}" class="${activeClass}">
+        ${label}
+      </a>
+    `;
+  }).join("");
+
+  header.innerHTML = `
     <header class="site-header">
-      <div class="header-inner">
+      <div class="container header-inner">
+
         <div class="header-top">
-          <a class="brand" href="index.html">🐾 Praises <span>for Paws</span></a>
-          <button class="menu-toggle" type="button"
-            aria-expanded="false" aria-controls="main-navigation">
-            ☰ Menu
-          </button>
+          <a href="index.html" class="site-logo">
+            <span class="logo-icon">🐾</span>
+            <span>Praises for Paws</span>
+          </a>
         </div>
-        <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
-          ${navItems.map(([href, label]) => `
-            <a href="${href}"
-              ${currentPage === href ? 'aria-current="page"' : ""}
-              class="${href === "donate.html" ? "nav-donate" : ""}">
-              ${label}
-            </a>
-          `).join("")}
+
+        <nav class="main-nav" aria-label="Main navigation">
+          ${navigationLinks}
         </nav>
+
       </div>
     </header>
   `;
-
-  const toggle = target.querySelector(".menu-toggle");
-  const nav = target.querySelector(".main-nav");
-
-  toggle.addEventListener("click", () => {
-    const isOpen = nav.classList.toggle("open");
-    toggle.setAttribute("aria-expanded", String(isOpen));
-  });
 }
 
-function buildFooter() {
-  const target = document.querySelector("#site-footer");
-  if (!target) return;
 
-  target.innerHTML = `
+/* 4. BUILD SHARED FOOTER */
+
+function buildFooter() {
+  const footer = document.querySelector("#site-footer");
+
+  if (!footer) return;
+
+  const quickLinks = navItems.map(([url, label]) => `
+    <a href="${url}">${label}</a>
+  `).join("");
+
+  footer.innerHTML = `
     <footer class="site-footer">
       <div class="container">
-        <div class="footer-grid">
-          <div>
-            <h3>🐾 Praises for Paws</h3>
+
+        <div class="footer-content">
+
+          <div class="footer-about">
+            <h2>🐾 Praises for Paws</h2>
             <p>
-              Making every set of paws feel loved and helping pets get
-              the care and basic necessities they need.
+              Helping every set of paws feel loved,
+              supported, and cared for.
             </p>
-            <a class="button" href="donate.html">💗 Support Our Mission</a>
           </div>
 
-          <div>
+          <div class="footer-links">
             <h3>Quick Links</h3>
-            <a href="index.html">🏠 Home</a>
-            <a href="pawsgiving.html">🐾 Pawsgiving</a>
-            <a href="about.html">❤️ About Us</a>
-            <a href="programs.html">🧾 Programs</a>
-            <a href="events.html">📅 Events</a>
+            ${quickLinks}
           </div>
 
-          <div>
-            <h3>Get Involved</h3>
-            <a href="donate.html">💵 Donate</a>
-            <a href="volunteer.html">🙋 Volunteer</a>
-            <a href="success-stories.html">🐶 Success Stories</a>
-            <a href="contact.html">📞 Contact Us</a>
-          </div>
-
-          <div>
-            <h3>Follow Our Journey</h3>
-            <p>Follow us for events, campaigns, and updates.</p>
-            <div class="social-links">
-              <a href="https://www.instagram.com/"
-                aria-label="Instagram">◎</a>
-              <a href="https://www.facebook.com/"
-                aria-label="Facebook">f</a>
-              <a href="https://www.tiktok.com/"
-                aria-label="TikTok">♪</a>
-            </div>
-            <p class="form-note">Replace these links with your official accounts.</p>
-          </div>
         </div>
 
         <div class="footer-bottom">
-          <span>© <span data-current-year></span> Praises for Paws</span>
-          <span>Made with 💗 for every paw.</span>
+          <p>
+            &copy; ${new Date().getFullYear()}
+            Praises for Paws. All rights reserved.
+          </p>
         </div>
+
       </div>
     </footer>
   `;
-
-  const year = target.querySelector("[data-current-year]");
-  year.textContent = new Date().getFullYear();
 }
 
+
+/* 5. UPDATE IMPACT NUMBERS */
+
 function updateImpactNumbers() {
-  document.querySelectorAll("[data-impact]").forEach((element) => {
-    const key = element.dataset.impact;
-    if (!(key in impactNumbers)) return;
+  const impactElements = document.querySelectorAll("[data-impact]");
 
-    const number = Number(impactNumbers[key]) || 0;
+  impactElements.forEach(element => {
+    const impactType = element.dataset.impact;
 
-    if (key === "fundsRaised") {
-      element.textContent = number.toLocaleString("en-US", {
-        style: "currency",
-        currency: "USD",
-        maximumFractionDigits: 0
-      });
-    } else {
-      element.textContent = number.toLocaleString("en-US");
+    if (impactNumbers[impactType] !== undefined) {
+      element.textContent = impactNumbers[impactType];
     }
   });
 }
 
+
+/* 6. HOMEPAGE IMAGE CAROUSEL */
+
 function setupHeroCarousel() {
-  const slides = [...document.querySelectorAll(".hero-slide")];
-  const dots = [...document.querySelectorAll(".hero-dot")];
+  const slides = document.querySelectorAll(".hero-slide");
+  const dots = document.querySelectorAll(".hero-dot");
 
-  if (!slides.length) return;
+  if (slides.length === 0) return;
 
-  let activeIndex = 0;
-  let timer;
+  let currentSlide = 0;
+  let carouselInterval;
 
   function showSlide(index) {
-    activeIndex = (index + slides.length) % slides.length;
+    currentSlide = (index + slides.length) % slides.length;
 
     slides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === activeIndex);
-      slide.setAttribute("aria-hidden", String(i !== activeIndex));
+      slide.classList.toggle("active", i === currentSlide);
     });
 
     dots.forEach((dot, i) => {
-      dot.classList.toggle("active", i === activeIndex);
-      dot.setAttribute("aria-pressed", String(i === activeIndex));
+      dot.classList.toggle("active", i === currentSlide);
+      dot.setAttribute("aria-current", i === currentSlide ? "true" : "false");
     });
   }
 
-  function restartTimer() {
-    clearInterval(timer);
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      timer = setInterval(() => showSlide(activeIndex + 1), 5500);
+  function startCarousel() {
+    stopCarousel();
+
+    if (slides.length > 1) {
+      carouselInterval = setInterval(() => {
+        showSlide(currentSlide + 1);
+      }, 5000);
     }
   }
 
-  document.querySelector("[data-hero-prev]")?.addEventListener("click", () => {
-    showSlide(activeIndex - 1);
-    restartTimer();
-  });
+  function stopCarousel() {
+    if (carouselInterval) {
+      clearInterval(carouselInterval);
+    }
+  }
 
-  document.querySelector("[data-hero-next]")?.addEventListener("click", () => {
-    showSlide(activeIndex + 1);
-    restartTimer();
-  });
+  const previousButton = document.querySelector("[data-hero-prev]");
+  const nextButton = document.querySelector("[data-hero-next]");
+
+  if (previousButton) {
+    previousButton.addEventListener("click", () => {
+      showSlide(currentSlide - 1);
+      startCarousel();
+    });
+  }
+
+  if (nextButton) {
+    nextButton.addEventListener("click", () => {
+      showSlide(currentSlide + 1);
+      startCarousel();
+    });
+  }
 
   dots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
       showSlide(index);
-      restartTimer();
+      startCarousel();
     });
   });
 
   showSlide(0);
-  restartTimer();
+  startCarousel();
 }
 
+
+/* 7. DONATION AMOUNT BUTTONS */
+
 function setupDonationAmounts() {
+  const amountButtons = document.querySelectorAll("[data-amount]");
   const amountInput = document.querySelector("#donation-amount");
-  if (!amountInput) return;
 
-  document.querySelectorAll("[data-donation-amount]").forEach((button) => {
+  if (!amountInput || amountButtons.length === 0) return;
+
+  amountButtons.forEach(button => {
     button.addEventListener("click", () => {
-      amountInput.value = button.dataset.donationAmount;
+      const amount = button.dataset.amount;
 
-      document.querySelectorAll("[data-donation-amount]").forEach((item) => {
-        item.classList.toggle("selected", item === button);
+      amountInput.value = amount;
+
+      amountButtons.forEach(item => {
+        item.classList.remove("selected");
       });
+
+      button.classList.add("selected");
+    });
+  });
+
+  amountInput.addEventListener("input", () => {
+    amountButtons.forEach(button => {
+      button.classList.remove("selected");
     });
   });
 }
+
+
+/* 8. EVENT PHOTO GALLERIES */
 
 function setupEventGalleries() {
   const dialog = document.querySelector("#gallery-dialog");
+
   if (!dialog) return;
 
-  const image = dialog.querySelector("[data-gallery-image]");
-  const title = dialog.querySelector("[data-gallery-title]");
-  const counter = dialog.querySelector("[data-gallery-counter]");
+  const galleryButtons = document.querySelectorAll("[data-gallery]");
+
+  const galleryImage = dialog.querySelector("[data-gallery-image]");
+  const galleryTitle = dialog.querySelector("[data-gallery-title]");
+  const galleryCounter = dialog.querySelector("[data-gallery-counter]");
+
+  const previousButton = dialog.querySelector("[data-gallery-prev]");
+  const nextButton = dialog.querySelector("[data-gallery-next]");
+  const closeButton = dialog.querySelector("[data-gallery-close]");
+
+  if (!galleryImage) return;
 
   let images = [];
-  let index = 0;
+  let currentImage = 0;
+  let currentTitle = "";
 
-  function displayImage() {
-    if (!images.length) return;
-    image.src = images[index];
-    image.alt = `${title.textContent} — photo ${index + 1}`;
-    counter.textContent = `Photo ${index + 1} of ${images.length}`;
+  function showGalleryImage(index) {
+    if (images.length === 0) return;
+
+    currentImage = (index + images.length) % images.length;
+
+    galleryImage.src = images[currentImage];
+    galleryImage.alt = `${currentTitle} photo ${currentImage + 1}`;
+
+    if (galleryTitle) {
+      galleryTitle.textContent = currentTitle;
+    }
+
+    if (galleryCounter) {
+      galleryCounter.textContent =
+        `${currentImage + 1} / ${images.length}`;
+    }
   }
 
-  document.querySelectorAll("[data-gallery]").forEach((button) => {
+  galleryButtons.forEach(button => {
     button.addEventListener("click", () => {
-      images = button.dataset.images.split("|").filter(Boolean);
-      index = 0;
-      title.textContent = button.dataset.title || "Event Gallery";
-      displayImage();
-      dialog.showModal();
+      images = (button.dataset.images || "")
+        .split("|")
+        .map(image => image.trim())
+        .filter(Boolean);
+
+      if (images.length === 0) return;
+
+      currentTitle =
+        button.dataset.title || "Event Gallery";
+
+      showGalleryImage(0);
+
+      if (typeof dialog.showModal === "function") {
+        dialog.showModal();
+      } else {
+        dialog.setAttribute("open", "");
+      }
     });
   });
 
-  dialog.querySelector("[data-gallery-prev]")?.addEventListener("click", () => {
-    index = (index - 1 + images.length) % images.length;
-    displayImage();
-  });
+  if (previousButton) {
+    previousButton.addEventListener("click", () => {
+      showGalleryImage(currentImage - 1);
+    });
+  }
 
-  dialog.querySelector("[data-gallery-next]")?.addEventListener("click", () => {
-    index = (index + 1) % images.length;
-    displayImage();
-  });
+  if (nextButton) {
+    nextButton.addEventListener("click", () => {
+      showGalleryImage(currentImage + 1);
+    });
+  }
 
-  dialog.querySelector("[data-gallery-close]")?.addEventListener("click", () => {
-    dialog.close();
+  if (closeButton) {
+    closeButton.addEventListener("click", () => {
+      if (typeof dialog.close === "function") {
+        dialog.close();
+      } else {
+        dialog.removeAttribute("open");
+      }
+    });
+  }
+
+  dialog.addEventListener("click", event => {
+    if (event.target === dialog) {
+      if (typeof dialog.close === "function") {
+        dialog.close();
+      } else {
+        dialog.removeAttribute("open");
+      }
+    }
   });
 }
 
-/*
-  Demo forms only display a message.
-  They do NOT transmit, store, or process submissions.
+
+/* 9. DEMO FORMS
+   These forms only show a preview message.
+   They do NOT send or save submissions.
+
+   Do not add data-demo-form to your Google Forms
+   contact form or any real submission form.
 */
+
 function setupDemoForms() {
-  document.querySelectorAll("[data-demo-form]").forEach((form) => {
-    form.addEventListener("submit", (event) => {
+  const forms = document.querySelectorAll("[data-demo-form]");
+
+  forms.forEach(form => {
+    form.addEventListener("submit", event => {
       event.preventDefault();
 
-      if (!form.reportValidity()) return;
-
       const message = form.querySelector("[data-form-message]");
+
       if (message) {
         message.textContent =
-          "This is a preview only. Your information has not been sent or saved. Connect a form service before publishing.";
+          "This is a preview only. Your message has not been sent.";
       }
     });
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  buildHeader();
-  buildFooter();
-  updateImpactNumbers();
-  setupHeroCarousel();
-  setupDonationAmounts();
-  setupEventGalleries();
-});
 
+/* 10. AUTOMATIC FOOTER YEAR */
+
+function updateFooterYear() {
+  const yearElements = document.querySelectorAll("[data-year]");
+
+  yearElements.forEach(element => {
+    element.textContent = new Date().getFullYear();
+  });
+}
+
+
+/* =========================================================
+   11. START EVERYTHING WHEN THE PAGE LOADS
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  buildHeader();
+
+  buildFooter();
+
+  updateImpactNumbers();
+
+  setupHeroCarousel();
+
+  setupDonationAmounts();
+
+  setupEventGalleries();
+
+  setupDemoForms();
+
+  updateFooterYear();
+
+});
