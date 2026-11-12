@@ -1,4 +1,3 @@
-
 /* =====================================
    PRAISES FOR PAWS — SHARED STYLES
    ===================================== */
@@ -423,6 +422,24 @@ select:focus-visible {
   color: var(--grey);
 }
 
+/* TEAM PHOTOS — SAME DIMENSIONS */
+
+.team-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 12px;
+  margin-bottom: 18px;
+}
+
+.team-card {
+  overflow: hidden;
+}
+
+/* EXISTING PHOTO STYLES */
+
 .team-photo,
 .story-photo {
   width: 100%;
@@ -462,6 +479,8 @@ select:focus-visible {
   padding: 9px 16px;
   font-size: 0.9rem;
 }
+
+/* FORM STYLES */
 
 form {
   max-width: 720px;
@@ -529,6 +548,36 @@ input[type="checkbox"] {
 
 .amount-button.selected {
   background: var(--pink);
+}
+
+/* GOOGLE FORMS EMBEDS */
+
+.google-form-section {
+  width: 100%;
+  max-width: 850px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.google-form-section .section-heading {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.google-form-embed {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  background: white;
+  box-shadow: var(--shadow);
+}
+
+.google-form-embed iframe {
+  display: block;
+  width: 100%;
+  height: 1100px;
+  border: none;
+  background: white;
 }
 
 .gallery-dialog {
@@ -663,6 +712,8 @@ input[type="checkbox"] {
   border-radius: 8px;
 }
 
+/* RESPONSIVE STYLES */
+
 @media (max-width: 1050px) {
   .header-inner {
     flex-wrap: wrap;
@@ -742,6 +793,22 @@ input[type="checkbox"] {
   .page-banner {
     padding: 48px 6%;
   }
+
+  /* GOOGLE FORMS ON MOBILE */
+
+  .google-form-section {
+    padding: 10px;
+  }
+
+  .google-form-embed iframe {
+    height: 1300px;
+  }
+
+  /* TEAM PHOTOS ON MOBILE */
+
+  .team-card img {
+    height: 280px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -753,4 +820,3 @@ input[type="checkbox"] {
     animation-duration: 0.01ms !important;
   }
 }
-
