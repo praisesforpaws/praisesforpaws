@@ -797,11 +797,11 @@ input[type="checkbox"] {
   /* GOOGLE FORMS ON MOBILE */
 
   .google-form-section {
-    padding: 10px;
+     padding: 10px;
   }
 
   .google-form-embed iframe {
-    height: 1300px;
+     height: 1500px;
   }
 
   /* TEAM PHOTOS ON MOBILE */
