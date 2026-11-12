@@ -869,3 +869,59 @@ input[type="checkbox"] {
 .donation-form-embed iframe {
   height: 700px !important;
 }
+
+/* GOOGLE FORMS — CENTERED AND RESPONSIVE */
+
+.google-form-section {
+  width: 100%;
+  max-width: 1250px;
+  margin: 40px auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.google-form-embed {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 15px;
+  background: white;
+  box-shadow: var(--shadow);
+}
+
+.google-form-embed iframe {
+  display: block;
+  width: 100% !important;
+  height: 900px;
+  border: none;
+  background: white;
+}
+
+/* DONATION FORM */
+.donation-form-embed iframe {
+  height: 700px;
+}
+
+/* VOLUNTEER FORM */
+.volunteer-form-embed iframe {
+  height: 900px;
+}
+
+/* MOBILE */
+@media (max-width: 650px) {
+  .google-form-section {
+    padding: 10px;
+  }
+
+  .donation-form-embed iframe {
+    height: 850px;
+  }
+
+  .volunteer-form-embed iframe {
+    height: 1100px;
+  }
+}
